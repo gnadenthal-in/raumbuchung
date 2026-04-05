@@ -694,18 +694,15 @@ function showToast(msg,type=''){
   setTimeout(()=>t.remove(),3500);
 }
 
-const saved=localStorage.getItem('rbCfg');
-if(saved){
-  try{
-    cfg=JSON.parse(saved);
-    document.getElementById('cfgClientId').value=cfg.clientId||'';
-    document.getElementById('cfgTenantId').value=cfg.tenantId||'';
-    document.getElementById('cfgSiteUrl').value=cfg.siteUrl||'';
-    document.getElementById('cfgListName').value=cfg.listName||'Raumbuchungen';
-    document.getElementById('cfgApprovers').value=(cfg.approvers||[]).join(', ');
-    startMsal();
-  }catch{}
-}
+cfg={
+  clientId:'521d2166-1296-4309-8476-5717cdd3bfcc',
+  tenantId:'e103c2fb-0b2b-425f-98c4-807cf8f9af87',
+  siteUrl:'https://gnadenthal.sharepoint.com',
+  listName:'Raumbuchungen',
+  approvers:['cadmin@gtc-in.de']
+};
+document.getElementById('configScreen').style.display='none';
+startMsal();
 </script>
 </body>
 </html>
